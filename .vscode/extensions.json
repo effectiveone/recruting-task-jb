@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+      "esbenp.prettier-vscode",
+      "mcright.auto-save",
+      "dsznajder.es7-react-js-snippets",
+      "ecmel.vscode-html-css",
+      "lokalise.i18n-ally",
+      "vscodeshift.mui-snippets",
+      "bradlc.vscode-tailwindcss",
+    ]
+  }

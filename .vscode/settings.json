@@ -1,0 +1,12 @@
+{
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single",
+    "javascript.format.semicolons": "remove",
+    "typescript.format.semicolons": "remove",
+    "editor.formatOnSave": true,
+    "prettier.bracketSameLine": true,
+    "prettier.printWidth": 120,
+    "prettier.singleAttributePerLine": false,
+    "prettier.singleQuote": true,
+    "prettier.jsxSingleQuote": true
+}
