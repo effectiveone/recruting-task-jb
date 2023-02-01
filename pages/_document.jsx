@@ -1,10 +1,10 @@
-import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
 
 class CustomDocument extends Document {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return initialProps;
+  static async getInitialProps(ctx) {
+    const initialProps = await Document.getInitialProps(ctx)
+    return initialProps
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -22,8 +22,8 @@ class CustomDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
 
-export default CustomDocument;
+export default CustomDocument

@@ -1,5 +1,61 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+:root {
+    top: 0px;
+    left: 0px;
+
+    /* UI Properties */
+    background: #E9EEF2 0% 0% no-repeat padding-box;
+        /* Colors: */
+    --alert-red: #FF0000;
+    --logifleet-green: #78BE22;
+    --logifleet-blue: #0077C8;
+    --warning-orange: #F9BF00;
+    --primary-gray: #02080D;
+    --secondary-gray: #565B6A;
+    --tertiary-gray: #8D919A;
+    --white: #FFFFFF;
+    --hover-blue: #F0F9FF;
+    --selection-blue: #E1F3FE;
+    
+    /* Font/text values */
+    --unnamed-font-family-montserrat: Montserrat;
+    --unnamed-font-style-normal: normal;
+    --unnamed-font-weight-600: 600px;
+    --unnamed-font-weight-medium: medium;
+    --unnamed-font-weight-bold: bold;
+    --unnamed-font-size-20: 20px;
+    --unnamed-font-size-25: 25px;
+    --unnamed-font-size-30: 30px;
+    --unnamed-character-spacing-0: 0px;
+    --unnamed-line-spacing-24: 24px;
+    --unnamed-line-spacing-30: 30px;
+    --unnamed-line-spacing-37: 37px;
+    }
+    
+    /* Character Styles */
+    .nav-header {
+    font-family: var(--unnamed-font-family-montserrat);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-600);
+    font-size: var(--unnamed-font-size-25);
+    line-height: var(--unnamed-line-spacing-30);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--logifleet-blue);
+    }
+    .large-header {
+    font-family: var(--unnamed-font-family-montserrat);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-bold);
+    font-size: var(--unnamed-font-size-30);
+    line-height: var(--unnamed-line-spacing-37);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--primary-gray);
+    }
+    .button-text {
+    font-family: var(--unnamed-font-family-montserrat);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-medium);
+    font-size: var(--unnamed-font-size-20);
+    line-height: var(--unnamed-line-spacing-24);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--white);
+    }

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="216" height="54" viewBox="0 0 216 54">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1846" data-name="Rectangle 1846" width="54" height="54" transform="translate(42 13)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_3420" data-name="Group 3420" transform="translate(-42 -13)">
+    <g id="Group_3419" data-name="Group 3419">
+      <g id="Mask_Group_4" data-name="Mask Group 4" clip-path="url(#clip-path)">
+        <g id="route-duotone" transform="translate(42 13)">
+          <path id="Path_520" data-name="Path 520" d="M54,10.125C54,16.875,43.875,27,43.875,27S33.75,16.875,33.75,10.125a10.125,10.125,0,0,1,20.25,0ZM43.875,6.75a3.375,3.375,0,1,0,3.375,3.375A3.373,3.373,0,0,0,43.875,6.75ZM20.25,37.125C20.25,43.875,10.125,54,10.125,54S0,43.875,0,37.125A10.066,10.066,0,0,1,10.125,27,10.067,10.067,0,0,1,20.25,37.125ZM10.125,33.75A3.375,3.375,0,1,0,13.5,37.125,3.373,3.373,0,0,0,10.125,33.75Z" fill="#0077c8"/>
+          <path id="Path_521" data-name="Path 521" d="M43.875,27H33.75a3.375,3.375,0,0,0,0,6.75H43.875a10.125,10.125,0,0,1,0,20.25H10.125a61.33,61.33,0,0,0,5.685-6.75H43.875a3.375,3.375,0,0,0,0-6.75H33.75a10.125,10.125,0,0,1,0-20.25h4.44A61.33,61.33,0,0,0,43.875,27Z" fill="#78be22" opacity="0.4"/>
+        </g>
+      </g>
+      <text id="IdealRoad" transform="translate(106 51)" fill="#0077c8" font-size="30" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">IdealRoad</tspan></text>
+    </g>
+  </g>
+</svg>
