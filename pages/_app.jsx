@@ -16,7 +16,9 @@ function MyApp({ Component, pageProps: { ...pageProps } }) {
       </Head>
 
       <Box height='100vh' display='flex' flexDirection='column'>
+
         <Component {...pageProps} />
+
       </Box>
     </React.Fragment>
   )

@@ -19,6 +19,7 @@ import Container from '@mui/material/Container'
 import useSortAndFilter from '../../hooks/useSortAndFilter'
 import useModal from "../../hooks/useModal"
 import UpdateOrDeleteGroup from "../Modal/UpdateOrDeleteGroup"
+import FilterWrapper from "./FilterWrapper"
 
 const useStyles = makeStyles({
     table: {
@@ -28,10 +29,11 @@ const useStyles = makeStyles({
     },
 })
 
-const TableWrapper = ({ trackedObjects, handleChange, selected, setSelected }) => {
+const TableWrapper = ({ handleChange, selected, setSelected }) => {
     const classes = useStyles()
     const [open, setOpen, handleClose, handleOpen]
         = useModal()
+
 
     const [
         filteredTrackedObjects,
@@ -41,13 +43,11 @@ const TableWrapper = ({ trackedObjects, handleChange, selected, setSelected }) =
         sortOrder,
         filterValue,
         handleFilterChange,
-    ]
-        = useSortAndFilter(
-            trackedObjects)
+    ] = useSortAndFilter()
 
     const handleSelectAllClick = (event) => {
         if (event.target.checked) {
-            const newSelected = trackedObjects?.map((row) => row.id)
+            const newSelected = filteredTrackedObjects?.map((row) => row.id)
             setSelected(newSelected)
             return
         }
@@ -55,78 +55,83 @@ const TableWrapper = ({ trackedObjects, handleChange, selected, setSelected }) =
     }
 
     const isSelected = (id) => selected.indexOf(id) !== -1
-    useEffect(() => {
-        console.log('filteredTrackedObjects changed:', filteredTrackedObjects)
-    }, [filteredTrackedObjects, filterValue, handleFilterChange, trackedObjects, useSortAndFilter])
+
 
     return (
-        <Container maxWidth="xl" >
+        <>
 
-            <TableContainer>
-                <Table className={classes.table} aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell padding="checkbox">
-                                <Checkbox
-                                    indeterminate={selected.length > 0 && selected.length < trackedObjects?.length}
-                                    checked={trackedObjects?.length > 0 && selected.length === trackedObjects?.length}
-                                    onChange={handleSelectAllClick}
-                                />
-                            </TableCell>
-                            <TableCell>
-                                Name
-                                {sortOrder === 'asc' ? (
-                                    <ArrowDownwardIcon onClick={handleSortOrderChange} />
-                                ) : (
-                                    <ArrowUpwardIcon onClick={handleSortOrderChange} />
-                                )}
-                            </TableCell>
-                            <TableCell>Reference
-                                {sortOrderReference === 'asc' ? (
-                                    <ArrowDownwardIcon onClick={handleSortOrderReferenceChange} />
-                                ) : (
-                                    <ArrowUpwardIcon onClick={handleSortOrderReferenceChange} />
-                                )}
+            <FilterWrapper
+                handleFilterChange={handleFilterChange}
+                selected={selected}
+            />        <Container maxWidth="xl" >
 
-                            </TableCell>
-                            <TableCell>
-                                <MoreVertIcon />
-                            </TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {filteredTrackedObjects?.map((row) => (
-                            <TableRow key={row.id}>
-                                <TableCell padding="checkbox" >
-                                    <Box sx={{
-                                        display: "flex", flexDirection: "row",
-                                    }}>
-                                        <Checkbox checked={isSelected(row.id)} onClick={e => handleChange(e, row.id)} />
-
-                                        <IconButton sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <KeyboardArrowUpIcon />
-                                        </IconButton>
-                                    </Box>
+                <TableContainer>
+                    <Table className={classes.table} aria-label="simple table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell padding="checkbox">
+                                    <Checkbox
+                                        indeterminate={selected.length > 0 && selected.length < filteredTrackedObjects?.length}
+                                        checked={filteredTrackedObjects?.length > 0 && selected.length === filteredTrackedObjects?.length}
+                                        onChange={handleSelectAllClick}
+                                    />
                                 </TableCell>
-                                <TableCell component="th" scope="row">
-                                    {row.assetName}
+                                <TableCell>
+                                    Name
+                                    {sortOrder === 'asc' ? (
+                                        <ArrowDownwardIcon onClick={handleSortOrderChange} />
+                                    ) : (
+                                        <ArrowUpwardIcon onClick={handleSortOrderChange} />
+                                    )}
                                 </TableCell>
-                                <TableCell>{row.reference}</TableCell>
-                                <TableCell
-                                onClick={handleOpen}
-                                >
-                                    <MenuIcon />
+                                <TableCell>Reference
+                                    {sortOrderReference === 'asc' ? (
+                                        <ArrowDownwardIcon onClick={handleSortOrderReferenceChange} />
+                                    ) : (
+                                        <ArrowUpwardIcon onClick={handleSortOrderReferenceChange} />
+                                    )}
+
+                                </TableCell>
+                                <TableCell>
+                                    <MoreVertIcon />
                                 </TableCell>
                             </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer >
-            <UpdateOrDeleteGroup
-                open={open}
-                handleClose={handleClose}
-            />
-        </Container>
+                        </TableHead>
+                        <TableBody>
+                            {filteredTrackedObjects?.map((row) => (
+                                <TableRow key={row.id}>
+                                    <TableCell padding="checkbox" >
+                                        <Box sx={{
+                                            display: "flex", flexDirection: "row",
+                                        }}>
+                                            <Checkbox checked={isSelected(row.id)} onClick={e => handleChange(e, row.id)} />
+
+                                            <IconButton sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <KeyboardArrowUpIcon />
+                                            </IconButton>
+                                        </Box>
+                                    </TableCell>
+                                    <TableCell component="th" scope="row">
+                                        {row.assetName}
+                                    </TableCell>
+                                    <TableCell>{row.reference}</TableCell>
+                                    <TableCell
+                                        onClick={handleOpen}
+                                    >
+                                        <MenuIcon />
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer >
+                <UpdateOrDeleteGroup
+                    open={open}
+                    handleClose={handleClose}
+                />
+            </Container>
+        </>
+
     )
 }
 

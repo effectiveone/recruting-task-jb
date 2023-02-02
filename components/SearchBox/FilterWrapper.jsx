@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
@@ -82,19 +82,8 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-const FilterWrapper = ({ selected, trackedObjects }) => {
+const FilterWrapper = ({ selected, handleFilterChange }) => {
     const classes = useStyles()
-
-    const [
-        filteredTrackedObjects,
-        handleSortOrderChange,
-        handleSortOrderReferenceChange,
-        sortOrderReference,
-        sortOrder,
-        filterValue,
-        handleFilterChange,
-    ] = useSortAndFilter(trackedObjects)
-
     return (
         <Container maxWidth="xl" >
             <div className={classes.root}>

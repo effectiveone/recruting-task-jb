@@ -3,10 +3,9 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-import ResponsiveAppBar from '../components/navbar/ResponsiveAppBar'
 import GroupWrapper from "../components/SearchBox/GroupWrapper"
-import FilterWrapper from "../components/SearchBox/FilterWrapper"
 import TableWrapper from "../components/SearchBox/TableWrapper"
+import withLayout from './withLayout'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -60,19 +59,15 @@ const Index = () => {
         <div>Error: {error}</div>
       ) : (
         <>
-          <ResponsiveAppBar />
           <GroupWrapper />
-          <FilterWrapper
-            trackedObjects={trackedObjects}
-            selected={selected}
-          />
+
           <TableWrapper
             selected={selected} setSelected={setSelected}
-            trackedObjects={trackedObjects} handleChange={handleChangeCheckbox} />
+            handleChange={handleChangeCheckbox} />
         </>
       )}
     </>
   )
 }
 
-export default Index
+export default withLayout(Index)

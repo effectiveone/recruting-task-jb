@@ -65,8 +65,8 @@ const useStyles = makeStyles(theme => ({
     },
     paper: {
         position: "relative",
-        width: 451,
-        height: 543,
+        width: 251,
+        height: 533,
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
@@ -80,18 +80,15 @@ const useStyles = makeStyles(theme => ({
     subtitle: {
         marginBottom: theme.spacing(3)
     },
-    tabs: {
-        display: "flex",
-        marginBottom: theme.spacing(3)
-    },
+
     TableRow: {
         display: "flex",
         flexDirection: "column",
-        border: "1px solid black"
+        border: "1px solid black",
     },
 
     tab: {
-        width: "33.33%",
+        width: "80px",
         textTransform: "none",
         color: "inherit",
         fontWeight: "bold",
@@ -100,6 +97,14 @@ const useStyles = makeStyles(theme => ({
         "& svg": {
             marginRight: theme.spacing(1)
         }
+    },
+    selectedTab: {
+        width: "80px",
+        maxWidth: "80px",
+        textAlign: "center",
+        fontSize: "10px",
+        padding: "5px",
+        minWidth: "80px"
     },
     searchWrapper: {
         display: "flex",
@@ -164,7 +169,7 @@ const useStyles = makeStyles(theme => ({
         gridTemplateColumns: "1fr 1fr"
     },
     buttonLeft: {
-        width: "190px",
+        width: "100px",
         marginLeft: theme.spacing(2),
         background: "white",
         borderRadius: "5px",
@@ -173,8 +178,14 @@ const useStyles = makeStyles(theme => ({
         color: "red"
 
     },
+    listWrapper: {
+        height: "300px",
+        overflowY: "scroll"
+
+
+    },
     buttonRight: {
-        width: "190px",
+        width: "100px",
         backgroundColor: "white",
         border: "1px solid #0077C8",
         marginLeft: theme.spacing(2),
@@ -249,11 +260,11 @@ const UpdateOrDeleteGroup = ({ open,
                             className={classes.tabs}
                             indicatorColor="primary"
                             textColor="primary"
-                            centered
+
                         >
-                            <Tab icon={<Vehicles />} label="Vehicles" />
-                            <Tab icon={<Machines />} label="Machines" />
-                            <Tab icon={<Tools />} label="Tools" />
+                            <Tab icon={<Vehicles />} label="Vehicles" className={classes.selectedTab} />
+                            <Tab icon={<Machines />} label="Machines" className={classes.selectedTab} />
+                            <Tab icon={<Tools />} label="Tools" className={classes.selectedTab} />
                         </Tabs>
                         <div className={classes.searchWrapper}>
                             <SearchIcon />
