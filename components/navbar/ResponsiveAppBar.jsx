@@ -12,49 +12,26 @@ import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
-import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown"
-import KeyboardArrowUp from "@mui/icons-material/KeyboardArrowUp"
-import NotificationIcon from "@mui/icons-material/Notifications"
-import SettingsIcon from '@mui/icons-material/Settings'
-import FmdGoodIcon from '@mui/icons-material/FmdGood'
-import DescriptionIcon from '@mui/icons-material/Description'
-import PieChartIcon from '@mui/icons-material/PieChart'
+import { KeyboardArrowDown, KeyboardArrowUp, NotificationIcon, SettingsIcon, FmdGoodIcon, DescriptionIcon, PieChartIcon }
+  from "../../utils/Icons"
 import Logo from "../../assets/logo.svg"
 import AvatarThumbnail from "../../assets/man.png"
 
 import Image from 'next/image'
-import { makeStyles } from '@material-ui/core/styles'
-
-const useStyles = makeStyles({
-  icon: {
-    color: '#1579C9',
-  },
-})
-
-const settings = ['Tutorials', 'Api documentation', 'Contant Longifleet support']
+import { useStyles } from "./StyleResponsiveAppBar"
+import useDropdown from "../../hooks/useDropdown"
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null)
-  const [anchorElUser, setAnchorElUser] = React.useState(null)
-
   const classes = useStyles()
+  const [anchorElNav,
+    anchorElUser,
+    handleOpenNavMenu,
+    handleOpenUserMenu,
+    handleCloseNavMenu,
+    handleCloseUserMenu]
+    = useDropdown()
 
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget)
-  }
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget)
-  }
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null)
-  }
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null)
-  }
-
+  const settings = ['Tutorials', 'Api documentation', 'Contant Longifleet support']
   const pages = [{
     component: <FmdGoodIcon className={classes.icon} />,
     title: 'Live tracking',
@@ -88,7 +65,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            <Image src={Logo} width="400px" height="80px" />
+            <Image alt="logo" src={Logo} width="400px" height="80px" />
           </Typography>
 
           <Box
@@ -116,8 +93,8 @@ function ResponsiveAppBar() {
               }}
             >
 
-              {pages.map((page) => (<>
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+              {pages.map((page, index) => (<>
+                <MenuItem key={index} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               </>
@@ -141,7 +118,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            <Image src={Logo} width="200px" height="80px" />
+            <Image alt="logo" src={Logo} width="200px" height="80px" />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: "center", gap: "20px" }}>
             {pages.map((page, index) => (
@@ -212,11 +189,9 @@ function ResponsiveAppBar() {
                 sx={{ mt: '15px', display: 'flex', flexDirection: 'column', justifyContent: "left" }}
               >
                 {settings.map((setting, index) => (
-                  <React.Fragment key={setting}>
-                    <MenuItem>
-                      <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                  </React.Fragment>
+                  <MenuItem key={index}>
+                    <Typography textAlign="center">{setting}</Typography>
+                  </MenuItem>
                 ))}
                 <Box
                   sx={{ mt: '15px', width: "100%", border: "1px solid red", color: "red", display: "flex", alignItems: "center", justifyContent: "center" }}
@@ -229,7 +204,7 @@ function ResponsiveAppBar() {
 
 
         </Toolbar>
-      </Container>
+      </Container >
     </AppBar >
   )
 }

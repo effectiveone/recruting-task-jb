@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import React, { useEffect, useState } from 'react'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -7,27 +6,16 @@ import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Checkbox from '@material-ui/core/Checkbox'
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward'
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward'
-import MoreVertIcon from '@mui/icons-material/MoreVert'
-import MenuIcon from '@mui/icons-material/Menu'
 import Box from '@mui/material/Box'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
-import IconButton from '@mui/material/IconButton'
 import Container from '@mui/material/Container'
 import useSortAndFilter from '../../hooks/useSortAndFilter'
 import useModal from "../../hooks/useModal"
 import UpdateOrDeleteGroup from "../Modal/UpdateOrDeleteGroup"
 import FilterWrapper from "./FilterWrapper"
+import { IconButton, ArrowDownwardIcon, KeyboardArrowUpIcon, ArrowUpwardIcon, MoreVertIcon, MenuIcon, KeyboardArrowDownIcon }
+    from "../../utils/Icons"
+import { useStyles } from "./StyleTableWrapper"
 
-const useStyles = makeStyles({
-    table: {
-        marginTop: "20px",
-        minWidth: 650,
-        backgroundColor: "white"
-    },
-})
 
 const TableWrapper = ({ handleChange, selected, setSelected }) => {
     const classes = useStyles()
@@ -55,7 +43,10 @@ const TableWrapper = ({ handleChange, selected, setSelected }) => {
     }
 
     const isSelected = (id) => selected.indexOf(id) !== -1
-
+    const [reference, setRefence] = useState()
+    const handleClick = (newId) => {
+        setRefence(newId)
+    }
 
     return (
         <>
@@ -63,7 +54,8 @@ const TableWrapper = ({ handleChange, selected, setSelected }) => {
             <FilterWrapper
                 handleFilterChange={handleFilterChange}
                 selected={selected}
-            />        <Container maxWidth="xl" >
+            />
+            <Container maxWidth="xl" >
 
                 <TableContainer>
                     <Table className={classes.table} aria-label="simple table">
@@ -116,19 +108,24 @@ const TableWrapper = ({ handleChange, selected, setSelected }) => {
                                     </TableCell>
                                     <TableCell>{row.reference}</TableCell>
                                     <TableCell
-                                        onClick={handleOpen}
+                                        onClick={() => {
+                                            handleOpen()
+                                            handleClick(row.id)
+                                        }
+                                        }
                                     >
                                         <MenuIcon />
                                     </TableCell>
+                                    <UpdateOrDeleteGroup
+                                        open={open}
+                                        handleClose={handleClose}
+                                        id={reference}
+                                    />
                                 </TableRow>
                             ))}
                         </TableBody>
                     </Table>
                 </TableContainer >
-                <UpdateOrDeleteGroup
-                    open={open}
-                    handleClose={handleClose}
-                />
             </Container>
         </>
 
