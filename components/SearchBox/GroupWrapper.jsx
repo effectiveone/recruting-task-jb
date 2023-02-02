@@ -7,7 +7,8 @@ import useModal from "../../hooks/useModal"
 import CreateGroup from "../Modal/CreateGroup"
 import { useStyles } from "./StyleGroupWrapper"
 
-function GroupWrapper() {
+function
+    GroupWrapper() {
     const classes = useStyles()
     const [open, setOpen, handleClose, handleOpen]
         = useModal()
@@ -16,7 +17,7 @@ function GroupWrapper() {
     return (
         <Container maxWidth="xl" >
             <div className={classes.root}>
-                <Grid container spacing={16} className={classes.container}>
+                <Grid container className={classes.container}>
                     <Grid item xs={10}>
                         <h2
                         >Group</h2>

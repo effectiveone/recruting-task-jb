@@ -1,22 +1,12 @@
 import * as React from 'react'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import Menu from '@mui/material/Menu'
-import MenuIcon from '@mui/icons-material/Menu'
-import Container from '@mui/material/Container'
-import Avatar from '@mui/material/Avatar'
-import Button from '@mui/material/Button'
-import Divider from '@mui/material/Divider'
-import Tooltip from '@mui/material/Tooltip'
-import MenuItem from '@mui/material/MenuItem'
-import { KeyboardArrowDown, KeyboardArrowUp, NotificationIcon, SettingsIcon, FmdGoodIcon, DescriptionIcon, PieChartIcon }
+import {
+  MenuItem, Tooltip, Divider, Container, Menu, Typography, IconButton, Toolbar,
+  Box, AppBar,Button
+} from '@mui/material'
+import { MenuIcon, KeyboardArrowDown, KeyboardArrowUp, NotificationIcon, SettingsIcon, FmdGoodIcon, DescriptionIcon, PieChartIcon }
   from "../../utils/Icons"
 import Logo from "../../assets/logo.svg"
 import AvatarThumbnail from "../../assets/man.png"
-
 import Image from 'next/image'
 import { useStyles } from "./StyleResponsiveAppBar"
 import useDropdown from "../../hooks/useDropdown"
@@ -93,16 +83,18 @@ function ResponsiveAppBar() {
               }}
             >
 
-              {pages.map((page, index) => (<>
-                <MenuItem key={index} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              </>
+              {pages.map((page, index) => (
+                <React.Fragment key={index}>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Box textAlign="center">{page}</Box>
+                  </MenuItem>
+                </React.Fragment>
               ))}
+
 
             </Menu>
           </Box>
-          <Typography
+          <Box
             variant="h5"
             noWrap
             component="a"
@@ -119,7 +111,7 @@ function ResponsiveAppBar() {
             }}
           >
             <Image alt="logo" src={Logo} width="200px" height="80px" />
-          </Typography>
+          </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: "center", gap: "20px" }}>
             {pages.map((page, index) => (
               <React.Fragment key={index}>
@@ -147,7 +139,7 @@ function ResponsiveAppBar() {
             </IconButton>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} color="#1579C9">
-                <Avatar alt="Remy Sharp" src={AvatarThumbnail} />
+                <Image alt="Remy Sharp" src={AvatarThumbnail} />
                 {Boolean(anchorElUser) ? (
                   <KeyboardArrowUp />
                 ) : (
@@ -189,9 +181,12 @@ function ResponsiveAppBar() {
                 sx={{ mt: '15px', display: 'flex', flexDirection: 'column', justifyContent: "left" }}
               >
                 {settings.map((setting, index) => (
-                  <MenuItem key={index}>
-                    <Typography textAlign="center">{setting}</Typography>
-                  </MenuItem>
+                  <React.Fragment key={index}>
+                    <MenuItem >
+                      <Box textAlign="center">{setting}</Box>
+                    </MenuItem>
+                  </React.Fragment>
+
                 ))}
                 <Box
                   sx={{ mt: '15px', width: "100%", border: "1px solid red", color: "red", display: "flex", alignItems: "center", justifyContent: "center" }}

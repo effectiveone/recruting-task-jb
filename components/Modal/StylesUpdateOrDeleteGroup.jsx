@@ -32,6 +32,8 @@ const useStyles = makeStyles(theme => ({
 
     tabs: {
         width: "280px",
+        maxWidth: "280px",
+        minWidth: "280px",
         textTransform: "none",
         color: "inherit",
         fontWeight: "bold",
@@ -44,10 +46,10 @@ const useStyles = makeStyles(theme => ({
     selectedTab: {
         width: "80px",
         maxWidth: "80px",
+        minWidth: "80px",
         textAlign: "center",
         fontSize: "10px",
-        padding: "5px",
-        minWidth: "80px"
+        padding: "5px"
     },
     searchWrapper: {
         display: "flex",

@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: "50px"
     },
     icon: {
+        size: "15px",
         color: '#1579C9',
     },
     flexbox: {
@@ -37,6 +38,8 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         alignItems: "center",
         width: "107px",
+        minWidth: "107px",
+        maxWidth: "107px",
         height: "19x"
     },
     root: {
@@ -52,6 +55,8 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "white",
         color: "#1579C9",
         width: "107px",
+        minWidth: "107px",
+        maxWidth: "107px",
         padding: "5px 5px 5px 5px",
         background: "var(--white) 0% 0% no-repeat padding-box",
         background: "#FFFFFF 0% 0% no-repeat padding-box",

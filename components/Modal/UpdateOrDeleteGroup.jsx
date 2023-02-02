@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField'
 import Fade from "@material-ui/core/Fade"
 import useAxiosFunction from "../../hooks/useAxiosFunction"
 import { listItems } from "../../utils/FakeDate"
+
 import {
     Tabs,
     Tab,
@@ -84,7 +85,7 @@ const UpdateOrDeleteGroup = ({ open,
             >
                 <Fade in={open}>
                     <div className={classes.paper}>
-                        <button className={classes.close} onClick={handleClose}>X</button>
+                        <Button className={classes.close} onClick={handleClose}>X</Button>
                         <h2 id="transition-modal-title">Group</h2>
                         <h4 id="transition-modal-description">Reference {reference}</h4>
                         <Tabs
