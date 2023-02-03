@@ -116,17 +116,18 @@ const TableWrapper = ({ handleChange, selected, setSelected }) => {
                                     >
                                         <MenuIcon />
                                     </TableCell>
-                                    <UpdateOrDeleteGroup
-                                        open={open}
-                                        handleClose={handleClose}
-                                        id={reference}
-                                    />
+
                                 </TableRow>
                             ))}
                         </TableBody>
                     </Table>
                 </TableContainer >
             </Container>
+            <UpdateOrDeleteGroup
+                open={open}
+                handleClose={handleClose}
+                id={reference}
+            />
         </>
 
     )

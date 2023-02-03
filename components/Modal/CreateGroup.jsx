@@ -67,9 +67,9 @@ const CreateGroup = ({ open,
                             <button className={classes.close} onClick={handleClose}>X</button>
                         </div>
                         <Box className={classes.body}>
-                            <Typography className={classes.message}>
+                            <Box className={classes.message}>
                                 <p className={classes.messageDot}>*</p> indicates a required field
-                            </Typography>
+                            </Box>
 
                             <Input
                                 className={classes.input}
@@ -101,7 +101,7 @@ const CreateGroup = ({ open,
                                 id="outlined-multiline-static"
                                 label="Description"
                                 multiline
-                                rows={4}
+                                minRows={4}
                                 variant="outlined"
                                 value={groupDescription}
                                 onChange={(event) => setGroupDescription(event.target.value)}

@@ -1,9 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import ResponsiveAppBar from '../components/navbar/ResponsiveAppBar'
 
 
 const withLayout = (Component) => {
   const WithLayout = (props) => {
+    React.useEffect(() => {
+    }, []);
     return (
       <div>
         <ResponsiveAppBar />

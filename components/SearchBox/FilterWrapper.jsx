@@ -17,19 +17,14 @@ const FilterWrapper = ({ selected, handleFilterChange }) => {
             <div className={classes.root}>
                 <Grid container className={classes.wrapper}>
                     <Grid className={classes.flexbox}>
-                        <Grid spacing={2} className={classes.selectedItems}>
+                        <Grid className={classes.selectedItems}>
                             <span className={classes.selectedItemsSpan}>{selected.length !== 0 ? selected.length : 0} tools selected</span>
                         </Grid>
                         <Grid className={classes.filter}>
-                            <Button
-                                className={classes.button}
-                                variant="contained"
-                                startIcon={<IconButton color="#1579C9">
-                                    <FilterListIcon sx={{ p: 0 }} className={classes.icon} />
-                                </IconButton>}
-                            >
+                            <Button className={classes.button} variant="contained" startIcon={<FilterListIcon sx={{ p: 0 }} className={classes.icon} />}>
                                 Filter
                             </Button>
+
                         </Grid>
                     </Grid>
                     <Grid className={classes.searchContainer}>

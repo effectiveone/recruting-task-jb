@@ -93,7 +93,6 @@ const useStyles = makeStyles(theme => ({
 
     },
     tableCell: {
-        whiteSpace: "nowrap",
         overflow: "hidden",
         textOverflow: "ellipsis",
         width: 200

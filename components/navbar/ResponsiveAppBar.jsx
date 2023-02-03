@@ -1,18 +1,16 @@
 import * as React from 'react'
 import {
   MenuItem, Tooltip, Divider, Container, Menu, Typography, IconButton, Toolbar,
-  Box, AppBar,Button
+  Box, AppBar, Button
 } from '@mui/material'
 import { MenuIcon, KeyboardArrowDown, KeyboardArrowUp, NotificationIcon, SettingsIcon, FmdGoodIcon, DescriptionIcon, PieChartIcon }
   from "../../utils/Icons"
 import Logo from "../../assets/logo.svg"
 import AvatarThumbnail from "../../assets/man.png"
 import Image from 'next/image'
-import { useStyles } from "./StyleResponsiveAppBar"
 import useDropdown from "../../hooks/useDropdown"
 
 function ResponsiveAppBar() {
-  const classes = useStyles()
   const [anchorElNav,
     anchorElUser,
     handleOpenNavMenu,
@@ -23,15 +21,15 @@ function ResponsiveAppBar() {
 
   const settings = ['Tutorials', 'Api documentation', 'Contant Longifleet support']
   const pages = [{
-    component: <FmdGoodIcon className={classes.icon} />,
+    component: <FmdGoodIcon  sx={{ p: 0, color: '#1579C9' }}/>,
     title: 'Live tracking',
   },
   {
-    component: <DescriptionIcon className={classes.icon} />,
+    component: <DescriptionIcon  sx={{ p: 0, color: '#1579C9' }}/>,
     title: 'Reports',
   },
   {
-    component: <PieChartIcon className={classes.icon} />,
+    component: <PieChartIcon  sx={{ p: 0, color: '#1579C9' }}/>,
     title: 'Dashboard',
   }
   ]
@@ -40,9 +38,9 @@ function ResponsiveAppBar() {
     <AppBar position="static" sx={{ backgroundColor: "white" }}>
       <Container maxWidth="xl" sx={{ backgroundColor: "white" }}>
         <Toolbar disableGutters >
-          <Typography
+          <Box
             variant="h6"
-            noWrap
+
             component="a"
             href="/"
             sx={{
@@ -56,47 +54,10 @@ function ResponsiveAppBar() {
             }}
           >
             <Image alt="logo" src={Logo} width="400px" height="80px" />
-          </Typography>
-
-          <Box
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, alignSelf: 'center' }}
-          >
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              className={classes.icon}
-              color="#1579C9"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'flex', md: 'none' },
-                alignSelf: "center",
-              }}
-            >
-
-              {pages.map((page, index) => (
-                <React.Fragment key={index}>
-                  <MenuItem onClick={handleCloseNavMenu}>
-                    <Box textAlign="center">{page}</Box>
-                  </MenuItem>
-                </React.Fragment>
-              ))}
-
-
-            </Menu>
           </Box>
           <Box
             variant="h5"
-            noWrap
+
             component="a"
             href=""
             sx={{
@@ -110,7 +71,6 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            <Image alt="logo" src={Logo} width="200px" height="80px" />
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: "center", gap: "20px" }}>
             {pages.map((page, index) => (
@@ -132,10 +92,10 @@ function ResponsiveAppBar() {
 
           <Box sx={{ flexGrow: 0, gap: "20px" }}>
             <IconButton color="#1579C9">
-              <NotificationIcon sx={{ p: 0 }} className={classes.icon} />
+              <NotificationIcon sx={{ p: 0, color: '#1579C9' }}  />
             </IconButton>
             <IconButton color="#1579C9">
-              <SettingsIcon sx={{ p: 0 }} className={classes.icon} />
+              <SettingsIcon sx={{ p: 0, color: '#1579C9' }}  />
             </IconButton>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} color="#1579C9">
@@ -167,7 +127,7 @@ function ResponsiveAppBar() {
                 sx={{ display: 'flex', flexDirection: 'column' }}
               >
                 <MenuItem >
-                  <Typography variant="h5" >Gina Petruci</Typography>
+                 Gina Petruci
                 </MenuItem>
                 <MenuItem>
 
